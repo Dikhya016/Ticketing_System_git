@@ -5,6 +5,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import TicketForm
 from .models import Ticket
 
+def open_index(request):
+    return render(request,'tickets/index.html')
+
 def create_ticket(request):
     if request.method == 'POST':
         form = TicketForm(request.POST)

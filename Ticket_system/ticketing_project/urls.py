@@ -20,7 +20,7 @@ from tickets import views
 #from .import views
 
 urlpatterns = [
-    path('', views.create_ticket, name='create_ticket'),
+    path('', views.open_index, name='open_index'),
     path('create/', views.create_ticket, name='create_ticket'),
     path('list/', views.list_tickets, name='list_tickets'),
     path('<int:ticket_id>/', views.view_edit_ticket, name='view_edit_ticket'),

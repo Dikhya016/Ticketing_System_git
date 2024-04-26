@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticketing System</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+    <div class="m_cont">
+        <h1 class="m_head">Ticketing System</h1>
+    </div>
+    <div class="sec_cont">
+        <div>
+            <div class="three_img">
+                <img src="{% static 'create-file.png' %}" alt="1st">
+            </div>
+            <button class="click"><a href="http://127.0.0.1:8000/create/">Create List</a></button>
+        </div>
+        <div>
+            <div class="three_img">
+                <img src="{% static 'checklist.png' %}" alt="">
+            </div>
+            <button class="click"><a href="http://127.0.0.1:8000/list/">View/Edit List</a></button>
+        </div>
+        <div>
+            <div class="three_img">
+                <img src="{% static 'search.png' %}" alt="">
+            </div>
+            <button class="click"><a href="http://127.0.0.1:8000/search/">Search List</a></button>
+        </div>
+    </div>
+</body>
+</html>

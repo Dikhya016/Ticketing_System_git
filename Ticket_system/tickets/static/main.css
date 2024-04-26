@@ -32,24 +32,6 @@ body{
     color: white;
     background-color: blue;
 }
-.cont{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 20px;
-}
-.cont>button{
-    font-size:18px ;
-    padding: 5px;
-    color: white;
-    border-style: none;
-    background-color:rgb(41, 134, 119);
-    border-radius: 10px;
-    
-}
-.cont>button>a{
-    text-decoration: none;
-    color: white;
-}
 
 .main_cont{
     display: flex;
@@ -68,6 +50,16 @@ body{
     color:black;
     font-size: 23px;
 }
+.printed>button{
+    background-color: black;
+    border-radius: 10px;
+}
+.printed>button>a{
+    
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
 .details{
     color: rgb(99, 103, 114);
     border: 1px solid rgb(172,178,194);
@@ -80,3 +72,5 @@ body{
 .search_res{
     margin: 0px 400px;
 }
+
+

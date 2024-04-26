@@ -8,6 +8,11 @@ class Ticket(models.Model):
         ('Open', 'Open'),
         ('Closed', 'Closed')
     ]
+    CATEGORY=[
+        ('Technical', 'Technical'),
+        ('Billing', 'Billing'),
+        ('Service', 'Service'),
+    ]
 
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=20)
@@ -15,7 +20,7 @@ class Ticket(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     ticket_description = models.TextField()
-    category = models.CharField(max_length=20, default='Technical')
+    category = models.CharField(max_length=20, choices=CATEGORY, default='Technical')
     notes = models.TextField(blank=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='Open')
     creation_date = models.DateField(auto_now_add=True)
