@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    <h1 class="heading">Search Results</h1>
+    <ul class="search_res">
+        {% for ticket in tickets %}
+            <li class="printed">{{ ticket.ticket_description }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

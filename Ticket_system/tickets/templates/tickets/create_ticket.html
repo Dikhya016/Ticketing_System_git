@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Ticket</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    <h1 class="heading">Create Ticket</h1>
+    <hr class="line">
+    <form class="all" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="smt" type="submit">Submit</button>
+    </form>
+    <div class="cont">
+        <button><a href="http://127.0.0.1:8000/create/">Create New Ticket</a></button>
+        <button><a href="http://127.0.0.1:8000/list/">List All Tickets</a></button>
+        <button><a href="http://127.0.0.1:8000/">View/Edit Ticket</a></button>
+        <button><a href="http://127.0.0.1:8000/search/">Search Ticket</a></button>
+
+    </div>
+</body>
+</html>
+
