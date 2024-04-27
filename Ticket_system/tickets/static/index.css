@@ -20,18 +20,20 @@ body{
     margin: 30px;
     padding-top: 30px;
 }
+
 .three_img>img{
     width: 60%;
 }
 .click{
     border-radius: 10px;
-    border-color: blue;
+    border: none;
     font-size: 30px;
     margin-top: 20px;
     padding: 10px;
     background-color: blue;
     
 }
+
 .click>a{
     color: white;
     text-decoration: none;
