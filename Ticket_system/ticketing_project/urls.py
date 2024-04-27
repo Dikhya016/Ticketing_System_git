@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from tickets import views
+from django.conf import settings
+from django.contrib.staticfiles.urls import static
 #from .import views
 
 urlpatterns = [
@@ -26,3 +28,6 @@ urlpatterns = [
     path('<int:ticket_id>/', views.view_edit_ticket, name='view_edit_ticket'),
     path('search/', views.search_ticket, name='search_ticket'),
 ]
+
+if settings.DEBUG:
+    urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
