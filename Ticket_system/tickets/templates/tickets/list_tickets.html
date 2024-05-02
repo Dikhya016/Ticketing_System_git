@@ -10,56 +10,103 @@
       src="https://kit.fontawesome.com/a044caf582.js"
       crossorigin="anonymous"
     ></script>
-    <style>
-      .btn_cont{
-        margin-top: 200px;
-        text-align: center;
-      }
-      .left{
-        border: none;
-        background-color: blue;
-        border-radius: 50%;
-        margin-left: 50px;
-      }
-      .left:hover{
-            border: 2px solid white;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-        }
-      .left>a{
-          font-size: 50px;
-          color: white;
-      }
-    </style>
+    
   </head>
+
   <body>
     <h1 class="heading">List of Tickets</h1>
     <div class="main_cont">
       <div>
-        <h2 class="open">Open Tickets</h2>
-        <ul>
-          {% for ticket in open_tickets %}
-          <li class="printed">{{ ticket.ticket_description }}
-            <button><a href="/{{ticket.id}}"> EDIT  <i class='fas fa-edit'></i> </a></button>
-          </li>
+        <h2 class="tic_name">Technical Tickets</h2>
+        <table border="2" class="printed">
+          <tr class="tbl_head">
+            <th>Ticket Description</th>
+            <th>Ticket status</th>
+            <th>Ticket Last Updated on</th>
+            <th>Update Ticket</th>
+          </tr>
+
+          <tr>
+            {% for ticket in TT %}
+          </tr>
+
+          <tr class="sub_cont">
+            <td>{{ ticket.ticket_description }}</td>
+            <td>{{ ticket.status }}</td>
+            <td>{{ ticket.ticket_modify_time }}</td>
+
+            <td>
+              <button class="edit">
+                <a href="/{{ticket.id}}"> EDIT <i class="fas fa-edit"></i> </a>
+              </button>
+            </td>
+          </tr>
+
+          <tr />
           {% endfor %}
-        </ul>
+        </table>
       </div>
       <div>
-        <h2 class="close">Closed Tickets</h2>
-        <ul>
-          {% for ticket in closed_tickets %}
-          <li class="printed">
-            {{ ticket.ticket_description }}
-            <button><a href="/{{ticket.id}}"> EDIT  <i class='fas fa-edit'></i> </a></button>
-            
-          </li>
+        <h2 class="tic_name">Billing Tickets</h2>
+        <table border="2" class="printed">
+          <tr class="tbl_head">
+            <th>Ticket Description</th>
+            <th>Ticket status</th>
+            <th>Ticket Last Updated on</th>
+            <th>Update Ticket</th>
+          </tr>
+
+          <tr>
+            {% for ticket in BT %}
+          </tr>
+
+          <tr class="sub_cont">
+            <td>{{ ticket.ticket_description }}</td>
+            <td>{{ ticket.status }}</td>
+            <td>{{ ticket.ticket_modify_time }}</td>
+
+            <td>
+              <button class="edit">
+                <a href="/{{ticket.id}}"> EDIT <i class="fas fa-edit"></i> </a>
+              </button>
+            </td>
+          <tr />
           {% endfor %}
-        </ul>
+        </table>
+      </div>
+      <div>
+        <h2 class="tic_name">Service Tickets</h2>
+        <table border="2" class="printed">
+          <tr class="tbl_head">
+            <th>Ticket Description</th>
+            <th>Ticket status</th>
+            <th>Ticket Last Updated on</th>
+            <th>Update Ticket</th>
+          </tr>
+
+          <tr>
+            {% for ticket in ST %}
+          </tr>
+
+          <tr class="sub_cont">
+            <td>{{ ticket.ticket_description }}</td>
+            <td>{{ ticket.status }}</td>
+            <td>{{ ticket.ticket_modify_time }}</td>
+
+            <td>
+              <button class="edit">
+                <a href="/{{ticket.id}}"> EDIT <i class="fas fa-edit"></i> </a>
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
       </div>
     </div>
     <div class="btn_cont">
-      <button class="left"><a href="../"><i class='fas fa-angle-left'></i></a></button>
+      <button class="left">
+        <a href="../login/"><i class="fas fa-angle-left"></i></a>
+      </button>
     </div>
-    
   </body>
 </html>

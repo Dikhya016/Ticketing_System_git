@@ -3,6 +3,8 @@ body{
     /* background-color: #b9b9bc; */
     background-color: rgb(239,240,244);
 }
+
+
 .m_head{
     font-size: 50px;
     text-align: center;
@@ -36,5 +38,28 @@ body{
 
 .click>a{
     color: white;
+    text-decoration: none;
+}
+
+.click:hover{
+    border: 3px solid black;
+    font-weight: 600;
+}
+.logout{
+    text-align: right;
+    
+}
+.logout>button{
+    border-style: none;
+    border-radius: 10px;
+    margin-right: 50px;
+    padding: 8px;
+    background-color: blue;
+    border: 1px solid black;
+}
+.logout>button>a{
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
     text-decoration: none;
 }

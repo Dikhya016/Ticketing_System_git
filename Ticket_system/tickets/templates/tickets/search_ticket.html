@@ -10,33 +10,14 @@
       src="https://kit.fontawesome.com/a044caf582.js"
       crossorigin="anonymous"
     ></script>
-    <style>
-        .btn_cont{
-          margin-top: 30px;
-          text-align: center;
-        }
-        .left{
-          border: none;
-          background-color: blue;
-          border-radius: 50%;
-          margin-left: 50px;
-        }
-        .left:hover{
-              border: 2px solid white;
-              box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-          }
-        .left>a{
-            font-size: 50px;
-            color: white;
-        }
-    </style>
+
 </head>
 <body>
     <h1 class="heading">Search Ticket</h1>
     <form method="post" class="details">
         {% csrf_token %}
-        <label for="phone">Phone:</label>
-        <input required type="text" name="phone" id="phone">
+        <!-- <label for="phone">Phone:</label>
+        <input required type="text" name="phone" id="phone"> -->
         <label for="email">Email:</label>
         <input required type="email" name="email" id="email">
         <label for="category">Category:</label>
@@ -46,13 +27,13 @@
             <option value="Service">Service</option>
         </select>
         <label for="start_date">Start Date:</label>
-        <input required type="date" name="start_date" id="start_date">
+        <input type="date" name="start_date" id="start_date">
         <label for="end_date">End Date:</label>
-        <input required type="date" name="end_date" id="end_date">
+        <input  type="date" name="end_date" id="end_date">
         <button class="smt" type="submit">Search</button>
     </form>
     <div class="btn_cont">
-        <button class="left"><a href="../"><i class='fas fa-angle-left'></i></a></button>
+        <button class="left"><a href="../login/"><i class='fas fa-angle-left'></i></a></button>
     </div>
 </body>
 </html>
