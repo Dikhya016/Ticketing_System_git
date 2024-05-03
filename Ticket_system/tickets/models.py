@@ -45,7 +45,7 @@ class Ticket(models.Model):
 class Note(models.Model):
     case = models.ForeignKey(Ticket, related_name='notes', on_delete=models.CASCADE)
     content = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=datetime.datetime.now()+datetime.timedelta(minutes=330))
 
     def __str__(self):
         return f"Note for {self.case.title}"
