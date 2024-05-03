@@ -30,13 +30,13 @@ class Ticket(models.Model):
         max_length=10, choices=STATUS_CHOICES, default='Open')
     creation_date = models.DateField(auto_now_add=True)
     last_modified_date = models.DateField(auto_now=True)
-    # ticket_modify_time = models.DateTimeField(default=datetime.datetime.now()+datetime.timedelta(minutes=330))
-    ticket_modify_time = models.DateTimeField(default=datetime.datetime.now())
+    ticket_modify_time = models.DateTimeField(default=datetime.datetime.now()+datetime.timedelta(minutes=330))
+    
 
     def save(self, *args, **kwargs):
         # Set the timezone to IST before saving
 
-        self.ticket_modify_time = datetime.datetime.now()
+        self.ticket_modify_time = datetime.datetime.now()+datetime.timedelta(minutes=330)
         super(Ticket, self).save(*args, **kwargs)
 
     def __str__(self):
