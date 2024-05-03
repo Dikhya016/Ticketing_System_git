@@ -28,16 +28,16 @@ class Ticket(models.Model):
     #notes = models.TextField(blank=True)
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default='Open')
-    creation_date = models.DateField(auto_now_add=True)
-    last_modified_date = models.DateField(auto_now=True)
-    ticket_modify_time = models.DateTimeField(default=datetime.datetime.now()+datetime.timedelta(minutes=330))
+    # creation_date = models.DateField(auto_now_add=True)
+    # last_modified_date = models.DateField(auto_now=True)
+    # ticket_modify_time = models.DateTimeField(default=datetime.datetime.now()+datetime.timedelta(minutes=330))
     
 
-    def save(self, *args, **kwargs):
-        # Set the timezone to IST before saving
+    # def save(self, *args, **kwargs):
+    #     # Set the timezone to IST before saving
 
-        self.ticket_modify_time = datetime.datetime.now()+datetime.timedelta(minutes=330)
-        super(Ticket, self).save(*args, **kwargs)
+    #     self.ticket_modify_time = datetime.datetime.now()+datetime.timedelta(minutes=330)
+    #     super(Ticket, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.ticket_description
@@ -45,7 +45,14 @@ class Ticket(models.Model):
 class Note(models.Model):
     case = models.ForeignKey(Ticket, related_name='notes', on_delete=models.CASCADE)
     content = models.TextField()
-    created_at = models.DateTimeField(default=datetime.datetime.now()+datetime.timedelta(minutes=330))
+    created_at = models.DateTimeField(datetime.datetime.now()+datetime.timedelta(minutes=330))
+    
+    def save(self, *args, **kwargs):
+        # Set the timezone to IST before saving
+
+        self.created_at = datetime.datetime.now()+datetime.timedelta(minutes=330)
+        super(Note, self).save(*args, **kwargs)
+
 
     def __str__(self):
         return f"Note for {self.case.title}"
