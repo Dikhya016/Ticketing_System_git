@@ -5,7 +5,7 @@ body{
 }
 .heading{
     font-size: 40px;
-    color: blue;
+    color: yellow;
     text-align: center;
    
 }
@@ -56,6 +56,13 @@ table{
     text-align: center;
 
 }
+.nprinted{
+  color:white;
+  font-size: 23px;
+  font-weight: 100;
+  text-align: center;
+
+}
 .edit {
   background-color: white;
   border-radius: 10px;
@@ -85,10 +92,13 @@ table{
     margin-top: 50px;
     text-align: center;
   }
+.fa-angle-left{
+  color: black;
+}
   
 .left {
   border: none;
-  background-color: blue;
+  background-color: yellow;
   border-radius: 50%;
   margin-left: 50px;
 }
@@ -110,5 +120,14 @@ table{
 .sub_cont>td{
   padding: 8px;
 }
-
-
+.nsub_cont>td{
+  padding: 8px;
+}
+.ntbl_head>th{
+  padding: 10px;
+  color: black;
+}
+.note_content{
+  display: grid;
+  justify-content: center;
+}

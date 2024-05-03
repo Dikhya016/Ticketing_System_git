@@ -4,7 +4,7 @@ from django.db import models
 from django.db import models
 
 import datetime
-
+    
 
 class Ticket(models.Model):
     STATUS_CHOICES = [
@@ -25,7 +25,7 @@ class Ticket(models.Model):
     ticket_description = models.TextField()
     category = models.CharField(
         max_length=20, choices=CATEGORY, default='Technical')
-    notes = models.TextField(blank=True)
+    #notes = models.TextField(blank=True)
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default='Open')
     creation_date = models.DateField(auto_now_add=True)
@@ -41,3 +41,11 @@ class Ticket(models.Model):
 
     def __str__(self):
         return self.ticket_description
+
+class Note(models.Model):
+    case = models.ForeignKey(Ticket, related_name='notes', on_delete=models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Note for {self.case.title}"

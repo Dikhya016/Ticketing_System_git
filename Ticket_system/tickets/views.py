@@ -1,7 +1,9 @@
 # Create your views here.
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
-from .forms import TicketForm
-from .models import Ticket
+from .forms import TicketForm, NoteForm
+from .models import Ticket, Note
+from django.http import HttpResponseRedirect
+
 
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -65,7 +67,7 @@ def open_index(request):
 
 def create_ticket(request):
     global name
-    if(len(name) == 0):
+    if (len(name) == 0):
         return redirect('login')
     if request.method == 'POST':
         form = TicketForm(request.POST)
@@ -101,12 +103,27 @@ def view_edit_ticket(request, ticket_id):
             return redirect('list_tickets')
     else:
         form = TicketForm(instance=ticket)
-    return render(request, 'tickets/view_edit_ticket.html', {'form': form, 'ticket': ticket})
+
+    case = Ticket.objects.get(id=ticket_id)
+    if request.method == 'POST':
+        nform = NoteForm(request.POST)
+        if nform.is_valid():
+            note = nform.save(commit=False)
+            note.case = case
+            note.save()
+        return HttpResponseRedirect(request.path_info)
+    else:
+        nform = NoteForm()
+
+    case = Ticket.objects.get(id=ticket_id)
+    notes = case.notes.all()
+
+    return render(request, 'tickets/view_edit_ticket.html', {'form': form, 'ticket': ticket, 'nform': nform, 'notes': notes})
 
 
 def search_ticket(request):
     global name
-    if(len(name) == 0):
+    if (len(name) == 0):
         return redirect('login')
     if request.method == 'POST':
         # phone = request.POST.get('phone')

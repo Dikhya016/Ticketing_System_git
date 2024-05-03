@@ -1,29 +1,50 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>View/Edit Ticket</title>
-    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
     <script
       src="https://kit.fontawesome.com/a044caf582.js"
       crossorigin="anonymous"
     ></script>
-    
-    
-</head>
-<body>
+  </head>
+  <body>
     <h1 class="heading">View/Edit Ticket</h1>
     <form method="post" class="all">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="smt" type="submit">Update</button>
+      {% csrf_token %} {{ form.as_p }}
+      <button class="smt" type="submit">Update</button>
     </form>
-    <div class="btn_cont">
-        <button class="left"><a href="../list/"><i class='fas fa-angle-left'></i></a></button>
-    </div>
-    
-</body>
-</html>
 
+    <h1 class="heading">Add notes</h1>
+    <form method="post" class="all">
+      {% csrf_token %} {{ nform.as_p }}
+      <button class="smt" type="submit">ADD</button>
+    </form>
+
+    <h2>Notes</h2>
+    <div class="note_content">
+      <h3 class="heading">Created Notes </h3>
+      <table border="2" class="nprinted">
+        <tr class="tbl_head">
+          <th width="600px">Note Content</th>
+          <th>Created on</th>
+        </tr>
+        {% for note in notes %}
+        <tr class="nsub_cont">
+          <td width="600px">{{ note.content }}</td>
+          <td width="300px">{{ note.created_at }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class="btn_cont">
+      <button class="left">
+        <a href="../list/"><i class="fas fa-angle-left"></i></a>
+      </button>
+    </div>
+  </body>
+</html>
